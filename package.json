@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-blog",
+  "version": "1.0.0",
+  "description": "My majestic Nuxt.js project",
+  "author": "melnik",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.9.0",
+    "cross-env": "^5.2.0",
+    "element-ui": "^2.4.11",
+    "koa": "^2.6.2",
+    "nuxt": "^2.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
