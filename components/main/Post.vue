@@ -9,7 +9,7 @@
     <small>
       <i class="el-icon-time"></i>
       {{ new Date().toLocaleString() }}
-      </small>
+    </small>
   </header>
   <div class="post-body">
     <img 
@@ -32,7 +32,8 @@
 export default {
   methods: {
     openPost() {
-
+      const id = 'test-id'
+      this.$router.push(`/post/${id}`)
     }
   }
 }
