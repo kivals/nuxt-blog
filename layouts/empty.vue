@@ -4,6 +4,22 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    error() {
+      this.$store.getters.error;
+    }
+  },
+  watch: {
+    error(value) {
+      debugger
+      this.$message.error(value);
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
   .empty-layout {
     display: flex;

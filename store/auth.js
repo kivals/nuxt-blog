@@ -1,5 +1,3 @@
-import { resolve } from "path";
-
 export const state = () => ({
   token: null
 })
@@ -7,22 +5,33 @@ export const state = () => ({
 export const mutations = {
   setToken(state, token) {
     state.token = token;
-  } 
+  },
+  clearToken(state) {
+    state.token = null;
+  }
 }
 
 export const actions = {
   async login({ commit, dispatch }, formData) {
-    const token = await new Promise(resolve => {
-      setTimeout(() => {
-        resolve('mock-token');
-      }, 2000)
-    })
-    dispatch('setToken', token)
+    try {
+      const token = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          //resolve('mock-token');
+          reject('mock-token')
+        }, 1000)
+      });
+      dispatch('setToken', token);
+    } catch (error) {
+      commit('setError', error, {root: true})
+      throw error;
+    }
   },
-
   setToken({commit}, token) {
     commit('setToken', token)
-  }
+  },
+  logout({ commit }) {
+    commit('clearToken')
+  } 
 }
 
 export const getters = {
