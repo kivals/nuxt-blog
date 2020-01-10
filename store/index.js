@@ -4,7 +4,6 @@ export const state = () => ({
 
 export const mutations = {
 	setError(state, error) {
-		console.log('Errror')
 		state.error = error
 	},
 	clearError(state) {

@@ -1,8 +1,7 @@
-const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 
-const app = new Koa()
+const app = require('./app')
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -32,11 +31,13 @@ async function start () {
     nuxt.render(ctx.req, ctx.res)
   })
 
-  app.listen(port, host)
-  consola.ready({
-    message: `Server listening on http://${host}:${port}`,
-    badge: true
+  app.listen(port, host, () => {
+    consola.ready({
+      message: `Server listening on http://${host}:${port}`,
+      badge: true
+    })
   })
+  
 }
 
 start()

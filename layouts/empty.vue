@@ -8,12 +8,11 @@
 export default {
   computed: {
     error() {
-      this.$store.getters.error;
+      return this.$store.getters.error;
     }
   },
   watch: {
     error(value) {
-      debugger
       this.$message.error(value);
     }
   }
